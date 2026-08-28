@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onebyjorah.github.io/sitemap.xml
