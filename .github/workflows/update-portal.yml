@@ -1,0 +1,53 @@
+name: Update Portal & Ping IndexNow
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'   # every Monday 06:17 UTC
+  workflow_dispatch:        # allow manual runs
+  push:
+    paths:
+      - 'gen.py'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Regenerate portal
+        run: python gen.py
+      - name: Commit if changed
+        run: |
+          git config user.email "jhonattan.jimenez@users.noreply.github.com"
+          git config user.name "jhonattan.jimenez"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update portal from GitHub API"
+            git push
+          fi
+      - name: Ping IndexNow
+        run: |
+          KEY=$(cat key.txt)
+          python - <<PY
+          import json, urllib.request
+          KEY=open("key.txt").read().strip()
+          payload={
+            "host":"onebyjorah.github.io",
+            "key":KEY,
+            "keyLocation":f"https://onebyjorah.github.io/{KEY}.txt",
+            "urlList":["https://onebyjorah.github.io/","https://onebyjorah.github.io/sitemap.xml"]
+          }
+          req=urllib.request.Request("https://api.indexnow.org/indexnow",
+            data=json.dumps(payload).encode(),
+            headers={"Content-Type":"application/json"}, method="POST")
+          try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+              print("IndexNow:", r.status)
+          except Exception as e:
+            print("IndexNow err:", e)
+          PY
