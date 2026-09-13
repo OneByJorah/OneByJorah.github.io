@@ -1,20 +1,46 @@
-# OneByJorah GitHub Pages Portal
+<div align="center">
 
-A dynamic portal that showcases all 32 open-source projects by OneByJorah, including AI agents, network security tools, Active Directory utilities, Docker stacks, and monitoring dashboards.
+![OneByJorah portal banner](docs/assets/banner.svg)
 
-![GitHub stars](https://img.shields.io/github/stars/OneByJorah/VirtOffice?style=flat-square) ![GitHub forks](https://img.shields.io/github/forks/OneByJorah/VirtOffice?style=flat-square) ![Projects](https://img.shields.io/badge/32%20projects-orange) ![Live%20Portal](https://img.shields.io/website/http/onebyjorah.github.io?style=flat-square)
+# OneByJorah.github.io
 
-## Overview
+**The portal that indexes every OneByJorah repository** — auto-generated from the live GitHub API and published with GitHub Pages.
 
-This repository hosts the **OneByJorah GitHub Pages portal** (`onebyjorah.github.io`), an auto‑generated website that displays all public repositories from the `OneByJorah` GitHub account. The portal is rebuilt weekly from live GitHub API data to ensure it always shows the latest project information.
+<a href="https://github.com/OneByJorah/OneByJorah.github.io/stargazers"><img src="https://img.shields.io/github/stars/OneByJorah/OneByJorah.github.io?style=flat-square" alt="Stars"></a>
+<a href="https://github.com/OneByJorah/OneByJorah.github.io/commits"><img src="https://img.shields.io/github/last-commit/OneByJorah/OneByJorah.github.io?style=flat-square" alt="Last commit"></a>
+<img src="https://img.shields.io/badge/python-3.11%2B-blue?style=flat-square&logo=python&logoColor=white" alt="Python">
+<img src="https://img.shields.io/badge/github%20pages-live-222222?style=flat-square&logo=githubpages&logoColor=white" alt="GitHub Pages">
 
-### Key Features
+</div>
 
-- **Live Repository Data**: Pulls real-time information from GitHub API (stars, forks, language, topics, etc.)
-- **Automatic Updates**: Runs weekly on GitHub Actions to regenerate `index.html`, `sitemap.xml`, and `robots.txt`
-- **Project Classification**: Topics and tags help users discover related projects
-- **SEO Optimized**: Includes structured data (JSON‑LD) and XML sitemap
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
+![OneByJorah portal screenshot](docs/assets/screenshot.png)
+
+## What This Is
+
+This repository hosts [onebyjorah.github.io](https://onebyjorah.github.io), a static portal that lists every public, non-fork OneByJorah project with its description, language, stars, forks, open issues, and topics. A Python generator pulls live GitHub API data and rebuilds the site on a weekly schedule, so the index never goes stale by hand.
+
+## Quick Start
+
+```bash
+git clone https://github.com/OneByJorah/OneByJorah.github.io.git
+cd OneByJorah.github.io
+python3 gen.py
+```
+
+This regenerates `index.html`, `sitemap.xml`, and `robots.txt` in place. Preview locally with `python3 -m http.server 8000` and open **http://localhost:8000**.
+
+> [!NOTE]
+> `gen.py` calls the public GitHub API unauthenticated. To avoid rate limits locally, set a `GITHUB_TOKEN` environment variable — the workflow uses the built-in Actions token.
+
+## Features
+
+- **Live repository data** — stars, forks, language, topics, and open issues from the GitHub API.
+- **Automatic updates** — GitHub Actions regenerates the portal every Monday at 06:17 UTC.
+- **Topic discovery** — a floating tag cloud links related projects (e.g. `#ai`, `#docker`, `#security`).
+- **SEO ready** — JSON-LD structured data and an XML sitemap.
+- **Fast indexing** — the workflow pings IndexNow after each build.
+- **Responsive** — works across desktop, tablet, and mobile.
+- **Zero runtime** — pure static output served by GitHub Pages.
 
 ## Architecture
 
@@ -33,134 +59,66 @@ This repository hosts the **OneByJorah GitHub Pages portal** (`onebyjorah.github
 
 ### Components
 
-1. **gen.py** - Python script that:
-   - Fetches repository data from GitHub API
-   - Generates `index.html` with project cards
-   - Creates `sitemap.xml` for SEO
-   - Generates `robots.txt`
+1. **`gen.py`** — fetches repositories, filters out forks/private repos, sorts by stars and recency, then writes `index.html`, `sitemap.xml`, and `robots.txt`.
+2. **`update-portal.yml`** — GitHub Actions workflow running on a weekly cron (`17 6 * * 1`), manual dispatch, or pushes to `gen.py`; commits changes and pings IndexNow.
+3. **GitHub Pages** — hosts the generated static site.
 
-2. **GitHub Actions** (`.github/workflows/update-portal.yml`) - Automated workflow that:
-   - Runs every Monday (06:17 UTC)
-   - Regenerates the portal using `gen.py`
-   - Pings IndexNow for fast indexing
+## Generated Output
 
-3. **GitHub Pages** - Static site hosting via GitHub Pages
+| File | Purpose |
+|------|---------|
+| `index.html` | Portal page with project cards and topic cloud |
+| `sitemap.xml` | XML sitemap for search engines |
+| `robots.txt` | Robots exclusion directives |
+| `*.txt` | IndexNow key file |
 
-## Installation & Usage
+## Project Structure
 
-### Running Locally
-
-To generate the portal locally (useful for testing):
-
-```bash
-python3 gen.py
+```
+OneByJorah.github.io/
+├── gen.py                          # Portal generator (GitHub API → static site)
+├── index.html                      # Generated portal page
+├── sitemap.xml                     # Generated sitemap
+├── robots.txt                      # Generated robots directives
+├── key.txt                         # IndexNow key
+├── .nojekyll                       # Disable Jekyll processing
+├── .github/workflows/update-portal.yml
+├── docs/assets/                    # Banner, screenshots
+└── README.md
 ```
 
-This will create:
-- `index.html` - The main portal page
-- `sitemap.xml` - XML sitemap for search engines
-- `robots.txt` - Robots exclusion directives
+## Configuration
 
-### GitHub Actions Workflow
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `GITHUB_TOKEN` | — | Optional token for higher API rate limits during local runs |
 
-The portal updates automatically via GitHub Actions:
+## Use Cases
 
-1. Visit the [Actions tab](https://github.com/OneByJorah/OneByJorah.github.io/actions)
-2. Run the "Update Portal & Ping IndexNow" workflow manually if needed
-3. Watch the portal update on Mondays (06:17 UTC)
+1. **Public index** — a single URL that lists everything OneByJorah has published.
+2. **Discovery** — browse projects by topic instead of scrolling an org page.
+3. **SEO surface** — structured data and a sitemap for search engines.
 
-## Portal Features
+## Tech Stack
 
-### Project Cards
+Python 3.11+ · GitHub REST API · HTML5 · CSS · JavaScript · GitHub Pages · GitHub Actions · IndexNow
 
-Each project card displays:
-- **Name** with link to GitHub repository
-- **Description** (or "No description provided")
-- **Metadata**: stars, language, forks, open issues
-- **Topics/Tags** for easy filtering and discovery
-- **Quick GitHub link** "View on GitHub →"
+## Screenshots
 
-### Topic Filter
+| View | |
+|---|---|
+| ![main viewport](docs/screenshots/main.viewport.full.png) | ![mobile](docs/screenshots/main.mobile.png) |
 
-The portal includes a floating tag cloud that allows users to:
-- Browse projects by category (e.g., `#ai`, `#docker`, `#security`)
-- Click tags to jump directly to projects with those topics
-- Discover related projects through shared topics
+## Contributing
 
-### SEO & Accessibility
-
-- Schema.org structured data for better search engine understanding
-- Semantic HTML5 markup
-- Screen reader friendly navigation
-- Mobile-responsive design
-
-## Projects
-
-The portal currently showcases **32 repositories** across various categories:
-
-### AI & Machine Learning
-- [AIStack](https://github.com/OneByJorah/AIStack)
-- [ChatForge](https://github.com/OneByJorah/ChatForge)
-- [BenchDash](https://github.com/OneByJorah/BenchDash)
-- And more...
-
-### Network Security & Infrastructure
-- [VirtOffice](https://github.com/OneByJorah/VirtOffice)
-- [TeleOps](https://github.com/OneByJorah/TeleOps)
-- [NexusCore](https://github.com/OneByJorah/NexusCore)
-- And more...
-
-### Development Tools
-- [StackForge](https://github.com/OneByJorah/StackForge)
-- [CommandDesk](https://github.com/OneByJorah/CommandDesk)
-- [ForgeDash](https://github.com/OneByJorah/ForgeDash)
-- And more...
-
-View all projects on the [live portal](https://onebyjorah.github.io/)
-
-## Technology Stack
-
-- **Frontend**: HTML5, CSS (custom variables), JavaScript
-- **Backend**: Python 3.11+
-- **API**: GitHub REST API
-- **Deployment**: GitHub Pages
-- **Automation**: GitHub Actions
-- **SEO**: XML Sitemap, JSON-LD, IndexNow
-
-## Maintenance
-
-### GitHub Token (for local runs)
-
-If you plan to run the generator locally, you'll need to authenticate with the GitHub API:
-
-```bash
-# Create a personal access token with public_repo scope
-# Store it in a file named .git_token or set GITHUB_TOKEN environment variable
-export GITHUB_TOKEN="your_token_here"
-python3 gen.py
-```
-
-### Common Commands
-
-```bash
-# Test the generator locally
-python3 gen.py
-
-# Check what changed in generated files
-git diff
-
-# Run the workflow manually (requires authentication)
-gitub-actions run update-portal.yml
-```
+Issues and improvements are welcome. [Open an issue](https://github.com/OneByJorah/OneByJorah.github.io/issues) or see the [OneByJorah org](https://github.com/OneByJorah).
 
 ## License
 
-This portal is part of the OneByJorah organization. All individual projects have their own licenses accessible on their respective GitHub repositories.
+This portal is part of the OneByJorah organization and has no separate license file. Each linked project carries its own license, available on its repository.
 
-## Contact
+## Connect
 
-For issues with this portal:
-- Open an issue in this repository
-- Contact OneByJorah via GitHub profile
-
-[View All Projects](https://onebyjorah.github.io/) • [GitHub Organization](https://github.com/OneByJorah)
+- [jorahone.com](https://jorahone.com)
+- [GitHub Org](https://github.com/OneByJorah)
+- [info@jorahone.com](mailto:info@jorahone.com)
