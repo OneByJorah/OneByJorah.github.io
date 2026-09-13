@@ -14,7 +14,7 @@ def api(url):
 
 print("Fetching repos...")
 repos = api(f"https://api.github.com/users/{OWNER}/repos?per_page=100&sort=updated")
-repos = [r for r in repos if not r["fork"] and not r["private"]]
+repos = [r for r in repos if not r["fork"] and not r["private"] and not r.get("archived")]
 repos.sort(key=lambda r: (r["stargazers_count"], r["pushed_at"]), reverse=True)
 
 def esc(s): return html.escape(s or "", quote=True)
