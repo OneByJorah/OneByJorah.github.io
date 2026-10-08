@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 """Generate the OneByJorah GitHub Pages portal: index.html + sitemap.xml + robots.txt.
 Pulls live repo data from the GitHub API so the portal stays current."""
-import json, urllib.request, html, datetime, os
+import json, urllib.request, html, datetime, os, urllib.error
 
 OWNER = "OneByJorah"
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = f"https://{OWNER.lower()}.github.io"
 
 def api(url):
-    req = urllib.request.Request(url, headers={"User-Agent": OWNER, "Accept": "application/vnd.github+json"})
+    headers = {"User-Agent": OWNER, "Accept": "application/vnd.github+json"}
+    # The README documents GITHUB_TOKEN for local runs to avoid rate limits; the
+    # workflow passes the built-in Actions token. Honour it when present.
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.load(r)
 
@@ -41,7 +47,7 @@ for r in repos:
 all_topics = sorted({t for r in repos for t in r["topics"]})
 topic_cloud = " ".join(f'<a class="tag" href="#{t}">#{esc(t)}</a>' for t in all_topics)
 
-now = datetime.datetime.utcnow().strftime("%Y-%m-%d")
+now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
 
 itemlist = ", ".join(
     '{"@type":"ListItem","position":%d,"url":"%s","name":"%s"}' % (i + 1, esc(r["html_url"]), esc(r["name"]))
