@@ -18,7 +18,6 @@ Instructions for AI coding agents (OpenCode, Freebuff/Codebuff, Hermes workers, 
 | Lint markdown | `markdownlint-cli2 "**/*.md"` |
 | Scan for secrets | `gitleaks detect --redact --no-banner` |
 
-
 ## Rules
 
 1. Work on a branch named `agent/<task>`. Never push to `main`. Open a pull request.

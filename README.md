@@ -17,15 +17,7 @@ OneByJorah public portal — project showcase, documentation hub, and ecosystem 
 
 ## Ecosystem
 
-| Project | Description |
-|---------|-------------|
-| [ChatForge](https://github.com/OneByJorah/ChatForge) | AI chat interface |
-| [NetCore](https://github.com/OneByJorah/NetCore) | Network switch management |
-| [TeleOps](https://github.com/OneByJorah/TeleOps) | NOC platform for Telegram |
-| [VoiceSat](https://github.com/OneByJorah/VoiceSat) | Wake-word voice pipeline |
-| [StackForge](https://github.com/OneByJorah/StackForge) | CPU-only AI agent stack |
-| [DirWatch](https://github.com/OneByJorah/DirWatch) | AD DC health dashboard |
-| [NexusCore](https://github.com/OneByJorah/NexusCore) | Enterprise NOC platform |
+| Project | Description | | ---------|-------------| | [ChatForge](https://github.com/OneByJorah/ChatForge) | AI chat interface | | [NetCore](https://github.com/OneByJorah/NetCore) | Network switch management | | [TeleOps](https://github.com/OneByJorah/TeleOps) | NOC platform for Telegram | | [VoiceSat](https://github.com/OneByJorah/VoiceSat) | Wake-word voice pipeline | | [StackForge](https://github.com/OneByJorah/StackForge) | CPU-only AI agent stack | | [DirWatch](https://github.com/OneByJorah/DirWatch) | AD DC health dashboard | | [NexusCore](https://github.com/OneByJorah/NexusCore) | Enterprise NOC platform |
 
 ## Connect
 
