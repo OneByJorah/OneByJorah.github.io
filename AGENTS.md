@@ -6,7 +6,7 @@ Instructions for AI coding agents (OpenCode, Freebuff/Codebuff, Hermes workers, 
 
 - **What it is:** replace with one sentence.
 - **Stack:** replace (language, framework, runtime).
-- **Run locally:** `cp .env.example .env && docker compose up -d --build`, then open `http://127.0.0.1:8080`.
+- **Run locally:** open `index.html` in a browser, or `npx serve .` for a static server (this is a static Pages portal — no container).
 - **Health check:** `GET /healthz` must return 200.
 
 ## Commands
@@ -14,18 +14,17 @@ Instructions for AI coding agents (OpenCode, Freebuff/Codebuff, Hermes workers, 
 | Task | Command |
 | --- | --- |
 | Build image | `docker build .` |
-| Start / stop | `docker compose up -d --build` / `docker compose down -v` |
+
 | Lint markdown | `markdownlint-cli2 "**/*.md"` |
-| Lint Dockerfile | `hadolint Dockerfile` |
 | Scan for secrets | `gitleaks detect --redact --no-banner` |
-| Screenshots | start the stack, then `node scripts/screenshots.mjs` |
+
 
 ## Rules
 
 1. Work on a branch named `agent/<task>`. Never push to `main`. Open a pull request.
 2. Commit messages use Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`).
 3. Never read, print, or commit secrets. Do not open `.env` files. Use `.env.example` for documentation.
-4. Bind services to `127.0.0.1`. Never publish ports to `0.0.0.0` in compose files.
+4. This is a static portal: no runtime server, no container binding.
 5. Screenshots use demo data only. No real hostnames, IPs, usernames, emails, school or client names.
 6. Do not invent facts. If a command, flag, or API is unverified, check the official docs or ask.
 7. Verify before reporting done: run the build, run the tests, open the page. Paste real output.
