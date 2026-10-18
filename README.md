@@ -23,7 +23,7 @@ OneByJorah public portal — project showcase, documentation hub, and ecosystem 
 
 - **GitHub:** [github.com/OneByJorah](https://github.com/OneByJorah)
 - **Company:** [JorahOne, LLC](https://jorahone.com)
-- **Email:** info@jorahone.com
+- **Email:** <info@jorahone.com>
 
 ## License
 
