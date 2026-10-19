@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://onebyjorah.github.io/</loc><changefreq>daily</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/VirtOffice</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/VoiceCortex</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/CommandDesk</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/StackForge</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/AmbientOS</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/TeleOps</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/offivo</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/telnoc</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/cmdesk</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/vokara</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/staxen</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/ambivex</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://github.com/OneByJorah/ForgeDash</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://github.com/OneByJorah/AutoStack</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://github.com/OneByJorah/OneByJorah</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/AegisPass</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/DirWatch</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/TicketForge</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/smsnest</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/siemnest</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/twinops</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/famguard</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/netara</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/kervado</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/opvane</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/nuxora</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/pivona</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/zeprio</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/dirvex</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/konfiva</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/benchova</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/vidara</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/msprex</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/eduvex</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/satvox</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/kaidesk</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://github.com/OneByJorah/OneByJorah.github.io</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/HelpDeskForge</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/BenchDash</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/OpsCenter</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/ChatForge</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/MSPDash</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/VoiceSat</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/WarpGate</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/CostForge</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/NexusCore</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/SentryView</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/PiRoute</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/PrimeHub</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/ConfigVault</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/LearnForge</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/NetCore</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://github.com/OneByJorah/MSPEngine</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/pricelio</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/warvex</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/tikova</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/dashova</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://github.com/OneByJorah/chavora</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://github.com/OneByJorah/hermes-switch-manager</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://github.com/OneByJorah/AIStack</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://github.com/OneByJorah/arahOS-theme</loc><changefreq>weekly</changefreq></url>
